@@ -60,19 +60,21 @@ const App: React.FC = () => {
             </h1>
           </Link>
 
-          <ul className="flex-nowrap gap-8 hidden md:flex">
+          <div className="flex items-center gap-4">
+            <ul className="flex-nowrap gap-8 hidden md:flex">
+              {MenuItems.map((it) => (
+                <NavLink key={it.id} to={`/#${it.id}`}>
+                  <li className="text-white">{it.label}</li>
+                </NavLink>
+              ))}
+            </ul>
             <Languages
               className="text-white cursor-pointer"
               onClick={() =>
                 changeLanguage(i18n.language === "en" ? "zh" : "en")
               }
             />
-            {MenuItems.map((it) => (
-              <NavLink key={it.id} to={`/#${it.id}`}>
-                <li className="text-white">{it.label}</li>
-              </NavLink>
-            ))}
-          </ul>
+          </div>
         </header>
 
         <main className="max-w-screen-xl mx-auto p-4 sm:p-6">
