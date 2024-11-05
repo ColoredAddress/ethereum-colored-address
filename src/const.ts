@@ -26,6 +26,9 @@ export const MenuItems = [
     },
 ];
 
+export const WhyItemsKey = ["attacks", "user-friendly", "security"]
+export const HowItemsKey = ["difference", "compatibility", "security"]
+
 export const WhyItems = [
     {
         title: "黑客攻击",

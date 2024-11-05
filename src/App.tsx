@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { HowItems, Links, MenuItems, TestAddress, WhyItems } from "./const";
+import {
+  HowItemsKey,
+  Links,
+  MenuItems,
+  TestAddress,
+  WhyItemsKey,
+} from "./const";
 import { DemoContainer, DeviceExample, ExampleCard } from "./components";
 import { Background, Footer } from "./layout";
 import { scrollIntoViewById } from "./lib/utils";
@@ -14,10 +20,13 @@ import {
   TextCard,
 } from "./components";
 import "./App.scss";
+import { useTranslation } from "react-i18next";
+import { Languages } from "lucide-react";
 
 const App: React.FC = () => {
   const location = useLocation();
   const [address, setAddress] = useState<string>(TestAddress);
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     if (location.hash) {
@@ -28,6 +37,11 @@ const App: React.FC = () => {
         ?.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [location]);
+
+  // 切换语言的函数
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <>
@@ -47,6 +61,12 @@ const App: React.FC = () => {
           </Link>
 
           <ul className="flex-nowrap gap-8 hidden md:flex">
+            <Languages
+              className="text-white cursor-pointer"
+              onClick={() =>
+                changeLanguage(i18n.language === "en" ? "zh" : "en")
+              }
+            />
             {MenuItems.map((it) => (
               <NavLink key={it.id} to={`/#${it.id}`}>
                 <li className="text-white">{it.label}</li>
@@ -65,9 +85,7 @@ const App: React.FC = () => {
                 <h2 className="font-bold text-2xl bg-gradient-to-r from-cyan-500 to-fuchsia-500 bg-clip-text text-transparent">
                   以太坊有色地址协议
                 </h2>
-                <p className="text-gray-100 max-w-96">
-                  该方案旨为钱包地址增加视觉校验，通过地址哈希值计算唯一颜色组合，减少输入地址时的校验负担，同时防范交互时黑客钓鱼行为的潜在风险。
-                </p>
+                <p className="text-gray-100 max-w-96">{t("intro")}</p>
                 <div className="mt-8">{MainButton("#try")}</div>
               </div>
 
@@ -104,11 +122,11 @@ const App: React.FC = () => {
           <div id="why" className="my-6 py-12 sm:py-48">
             <p className="text-white text-2xl text-center">Why?</p>
             <div className="flex flex-col sm:flex-row justify-center gap-6 pt-16">
-              {WhyItems.map((cardText, index) => (
+              {WhyItemsKey.map((key, index) => (
                 <TextCard
                   key={`why + ${index}`}
-                  title={cardText.title}
-                  content={cardText.content}
+                  title={t(`why.title.${key}`)}
+                  content={t(`why.content.${key}`)}
                 />
               ))}
             </div>
@@ -117,11 +135,11 @@ const App: React.FC = () => {
           <div id="how" className="my-6 py-12 sm:py-48">
             <p className="text-white text-2xl text-center">How?</p>
             <div className="flex flex-col sm:flex-row justify-center gap-6 pt-16">
-              {HowItems.map((cardText, index) => (
+              {HowItemsKey.map((key, index) => (
                 <TextCard
-                  key={`why + ${index}`}
-                  title={cardText.title}
-                  content={cardText.content}
+                  key={`how + ${index}`}
+                  title={t(`how.title.${key}`)}
+                  content={t(`how.content.${key}`)}
                 />
               ))}
             </div>

@@ -1,0 +1,27 @@
+{
+    "intro": "The solution aims to add visual verification to wallet addresses by calculating a unique color combination based on the address hash value. This reduces the verification burden when entering addresses and helps prevent potential risks of phishing attacks during interactions.",
+    "why": {
+        "title": {
+            "attacks": "Hacker Attacks",
+            "user-friendly": "User Unfriendliness",
+            "security": "Security Risks"
+        },
+        "content": {
+            "attacks": "Hackers may exploit the powerful parallel computing capabilities of GPUs to generate a large number of fake addresses with identical characters at the beginning and end through brute-force methods within seconds. This type of attack can replace the user's real address without their knowledge, potentially leading to stolen funds or tampered transactions. Such attacks take advantage of the nature of Ethereum addresses, which are composed of a string of seemingly random hexadecimal characters, making it relatively easy to deceive users.",
+            "user-friendly": "Ethereum addresses are composed of a string of seemingly random hexadecimal characters, which presents a significant challenge for users to verify the accuracy of the address. Users typically need to check each character one by one, which is time-consuming and prone to errors. This tedious process, especially when conducting large transactions or important operations, increases the complexity of the user's actions, lowers the user experience, and may lead to dissatisfaction with the platform.",
+            "security": "In practice, to improve efficiency, many users only check the first and last few characters of the Ethereum address, neglecting the middle part. While this can reduce the verification workload to some extent, it also introduces security risks. Once an error occurs in the middle part of the address, users often fail to detect it in time, potentially causing funds to be sent to the wrong address. This problem is exacerbated when users rely only on partial features of the address for verification, significantly increasing the likelihood of errors and compromising transaction security and reliability."
+        }
+    },
+    "how": {
+        "title": {
+            "difference": "Differences",
+            "compatibility": "Compatibility",
+            "security": "Security"
+        },
+        "content": {
+            "difference": "Using hash values to colorize the address can significantly improve address distinguishability. Even if the user makes an error in just one or two characters of the address, the color change calculated from the hash value will be noticeably different. The sensitivity of this color change effectively helps users identify and confirm the accuracy of the address, reducing the risks associated with input errors. Due to the nature of hash functions, even small changes will result in entirely different hash values, leading to drastically different color outcomes, making errors easier to detect.",
+            "compatibility": "This colorization scheme is compatible with existing address display schemes and does not require additional UI components or complex technical modifications. It can be implemented directly on the existing system, meaning users do not need to adapt to a new interface or operating procedure. Technically, the implementation of this solution is relatively simple and easy to integrate into existing applications, allowing users to quickly accept and adapt to the improvement, thus enhancing the user experience.",
+            "security": "In terms of brute-force security, this colorization method significantly improves protection. For example, if an attacker attempts to calculate an address with identical first and last 5 characters and similar colors, the computation time using an NVIDIA RTX 4090 GPU would take up to 31,688 years. If using an AWS A100 GPU server for computation, the cost would exceed $8.8 billion. This exorbitant computation cost and time make large-scale brute-force attacks impractical, further ensuring the security of user addresses."
+        }
+    }
+}
