@@ -149,16 +149,23 @@ const App: React.FC = () => {
 
           <div id="support" className="my-6">
             <p className="text-white text-2xl text-center">Support</p>
-            <div className="flex flex-col justify-between gap-4 items-center my-16 px-4 sm:px-20">
-              <Link to={Links.Github} target="_blank">
-                <img
-                  src={Links.GithubCover}
-                  className="w-[500px] rounded-md"
-                  alt="Github Card"
-                />
-              </Link>
-
-              <TwitterCard />
+            <div className="flex flex-col sm:flex-row justify-center gap-4 items-center my-16 px-4 sm:px-20">
+              <img
+                src="/logo_rebase.png"
+                alt="Rebase"
+                className="h-10 bg-white rounded-sm p-2"
+              />
+              <img
+                src="/logo_ethpanda.png"
+                alt="ETHPanda"
+                className="h-10 bg-white rounded-sm p-2"
+              />
+              <img src="/logo_openbuild.svg" alt="OpenBuild" className="h-10" />
+              <img
+                src="/logo_learnblockchain.png"
+                alt="LearnBlockchain"
+                className="h-10"
+              />
             </div>
           </div>
         </main>
