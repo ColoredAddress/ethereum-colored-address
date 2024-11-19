@@ -19,20 +19,20 @@ Ethereum addresses are long and complex, making them hard to recognize at a glan
 
 ## How It Works
 
-1. **Unique Color Generation**: The protocol hashes the wallet address (e.g., with SHA-256), extracts specific bits, and maps them to RGB values to create a unique color.
+1. **Unique Color Generation**: The protocol hashes the wallet address (e.g., with keccak256), extracts specific bits, and maps them to RGB values to create a unique color.
 2. **Noticeable Differences**: Even a one-character change in an address results in a visibly different color, making discrepancies easier to spot.
 3. **Easy Integration**: This system is compatible with existing wallet and blockchain explorer interfaces, so it can be implemented without major changes.
 4. **Security Measures**: The color generation process is designed to be complex enough to prevent attackers from creating false color matches or spoofing addresses.
 
 ## Algorithm
 
-![Colored Address Overflow](/public/colored-address-pic.png)
+![Colored Address Overflow](/public/color-overflow.png)
 
 ```
-import { sha256 } from "js-sha256";
+import { keccak256 } from "js-sha3";
 
 export const calculateColors = (address: string): string[] => {
-    const hash = sha256(address);
+    const hash = keccak256(address);
     const firstThirtyHexChars = hash.slice(0, 30);
     const colors = [];
 
