@@ -1,7 +1,7 @@
-import { sha256 } from "js-sha256";
+import { keccak256 } from "js-sha3";
 
 export const calculateColors = (address: string): string[] => {
-    const hash = sha256(address);
+    const hash = keccak256(address);
     const firstThirtyHexChars = hash.slice(0, 30);
     const colors = [];
 
