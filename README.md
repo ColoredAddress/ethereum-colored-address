@@ -33,6 +33,8 @@ https://address.33357.xyz/
 
 ## 项目讨论
 
+https://ethereum-magicians.org/t/ethereum-colored-address-protocol/21704
+
 https://x.com/33357xyz/status/1824471393297371186
 
 ## 项目部署
