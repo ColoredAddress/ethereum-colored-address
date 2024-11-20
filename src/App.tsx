@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   HowItemsKey,
-  Links,
   MenuItems,
+  SupportLinks,
   TestAddress,
   WhyItemsKey,
 } from "./const";
@@ -16,7 +16,6 @@ import {
   AddressPattern,
   MainButton,
   WalletIcon,
-  TwitterCard,
   TextCard,
 } from "./components";
 import "./App.scss";
@@ -150,22 +149,41 @@ const App: React.FC = () => {
           <div id="support" className="my-6">
             <p className="text-white text-2xl text-center">Support</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 items-center my-16 px-4 sm:px-20">
-              <img
-                src="/logo_rebase.png"
-                alt="Rebase"
-                className="h-10 bg-white rounded-sm p-2"
-              />
-              <img
-                src="/logo_ethpanda.png"
-                alt="ETHPanda"
-                className="h-10 bg-white rounded-sm p-2"
-              />
-              <img src="/logo_openbuild.svg" alt="OpenBuild" className="h-10" />
-              <img
-                src="/logo_learnblockchain.png"
-                alt="LearnBlockchain"
-                className="h-10"
-              />
+              <a href={SupportLinks.Rebase} target="_blank" rel="noreferrer">
+                <img
+                  src="/logo_rebase.png"
+                  alt="Rebase"
+                  className="h-10 bg-white rounded-sm p-2"
+                />
+              </a>
+              <a href={SupportLinks.ETHPanda} target="_blank" rel="noreferrer">
+                <img
+                  src="/logo_ethpanda.png"
+                  alt="ETHPanda"
+                  className="h-10 bg-white rounded-sm p-2"
+                />
+              </a>
+              <a href={SupportLinks.OpenBuild} target="_blank" rel="noreferrer">
+                <img
+                  src="/logo_openbuild.svg"
+                  alt="OpenBuild"
+                  className="h-10"
+                />
+              </a>
+              <a
+                href={SupportLinks.LearnBlockchain}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/logo_learnblockchain.png"
+                  alt="LearnBlockchain"
+                  className="h-10"
+                />
+              </a>
+              <a href={SupportLinks.LXDao} target="_blank" rel="noreferrer">
+                <img src="/logo_lxdao.png" alt="LXDao" className="h-10" />
+              </a>
             </div>
           </div>
         </main>
