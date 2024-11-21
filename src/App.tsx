@@ -2,12 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import {
   HowItemsKey,
+  Links,
   MenuItems,
   SupportLinks,
   TestAddress,
   WhyItemsKey,
 } from "./const";
-import { DemoContainer, DeviceExample, ExampleCard } from "./components";
+import {
+  DemoContainer,
+  DeviceExample,
+  ExampleCard,
+  TwitterCard,
+} from "./components";
 import { Background, Footer } from "./layout";
 import { scrollIntoViewById } from "./lib/utils";
 import {
@@ -184,6 +190,21 @@ const App: React.FC = () => {
               <a href={SupportLinks.LXDao} target="_blank" rel="noreferrer">
                 <img src="/logo_lxdao.png" alt="LXDao" className="h-10" />
               </a>
+            </div>
+          </div>
+
+          <div id="links" className="my-6">
+            <p className="text-white text-2xl text-center">Links</p>
+            <div className="flex flex-col justify-center gap-4 items-center my-16 px-4 sm:px-20">
+              <Link to={Links.Github} target="_blank">
+                <img
+                  src={Links.GithubCover}
+                  className="w-[500px] rounded-md"
+                  alt="Github Card"
+                />
+              </Link>
+
+              <TwitterCard />
             </div>
           </div>
         </main>
