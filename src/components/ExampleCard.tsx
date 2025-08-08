@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ColorfulAddress } from "./ColorfulAddress";
 import { Checkbox } from "./CheckBox";
 import { motion } from "framer-motion";
